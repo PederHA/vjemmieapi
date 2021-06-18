@@ -113,7 +113,10 @@ async def get_all_tidstyv(db: Session = Depends(get_db)):
 
 @app.get("/tidstyveri/{user_id}", response_model=schemas.TidstyvOut)
 async def get_tidstyv_by_id(user_id: str, db: Session = Depends(get_db)):
-    return crud.get_tidstyv_by_id(db, user_id)
+    r = crud.get_tidstyv_by_id(db, user_id)
+    if not r:
+        raise HTTPNotFoundException("User")
+    return r
 
 
 @app.post("/tidstyveri", response_model=schemas.TidstyvOut, status_code=201)
