@@ -37,6 +37,34 @@ def test_add_gamingmoment():
     assert j["count"] == 2
 
 
+def test_decrease_gamingmoment():
+    # Test that we can decrease the count for "tester"
+    resp = client.post("/gamingmoments/tester?decrease=1")
+    assert resp.status_code == 201
+    j = resp.json()
+    assert j["count"] == 1
+
+    # Test that we can decrement to 0, but not beyond
+    resp = client.post("/gamingmoments/tester?decrease=1")
+    assert resp.status_code == 201
+    j = resp.json()
+    assert j["count"] == 0
+
+    # This should not go below 0
+    resp = client.post("/gamingmoments/tester?decrease=1")
+    assert resp.status_code == 201
+    j = resp.json()
+    assert j["count"] == 0
+
+    # Test that decreasing for an undefined user creates it and sets counter to 0
+    resp = client.post("/gamingmoments/tester2?decrease=1")
+    assert resp.status_code == 201
+    j = resp.json()
+    assert j["count"] == 0
+
+
 def test_delete_gamingmoment():
     resp = client.delete("/gamingmoments/tester")
+    assert resp.status_code == 204
+    resp = client.delete("/gamingmoments/tester2")
     assert resp.status_code == 204
