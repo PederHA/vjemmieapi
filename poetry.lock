@@ -24,7 +24,7 @@ version = "1.4.4"
 category = "main"
 description = "ASGI specs, helper code, and adapters"
 name = "asgiref"
-optional = false
+optional = true
 python-versions = ">=3.6"
 version = "3.3.4"
 
@@ -157,7 +157,7 @@ docs = ["sphinx"]
 category = "main"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
 name = "h11"
-optional = false
+optional = true
 python-versions = ">=3.6"
 version = "0.12.0"
 
@@ -165,7 +165,7 @@ version = "0.12.0"
 category = "main"
 description = "A collection of framework independent HTTP protocol utils."
 name = "httptools"
-optional = false
+optional = true
 python-versions = "*"
 version = "0.2.0"
 
@@ -326,9 +326,9 @@ testing = ["fields", "hunter", "process-tests", "six", "pytest-xdist", "virtuale
 category = "main"
 description = "Read key-value pairs from a .env file and set them as environment variables"
 name = "python-dotenv"
-optional = false
+optional = true
 python-versions = "*"
-version = "0.17.1"
+version = "0.18.0"
 
 [package.extras]
 cli = ["click (>=5.0)"]
@@ -337,7 +337,7 @@ cli = ["click (>=5.0)"]
 category = "main"
 description = "YAML parser and emitter for Python"
 name = "pyyaml"
-optional = false
+optional = true
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 version = "5.4.1"
 
@@ -444,7 +444,7 @@ socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7,<2.0)"]
 category = "main"
 description = "The lightning-fast ASGI server."
 name = "uvicorn"
-optional = false
+optional = true
 python-versions = "*"
 version = "0.14.0"
 
@@ -489,7 +489,7 @@ category = "main"
 description = "Fast implementation of asyncio event loop on top of libuv"
 marker = "sys_platform != \"win32\" and sys_platform != \"cygwin\" and platform_python_implementation != \"PyPy\""
 name = "uvloop"
-optional = false
+optional = true
 python-versions = ">=3.7"
 version = "0.15.2"
 
@@ -502,7 +502,7 @@ test = ["aiohttp", "flake8 (>=3.8.4,<3.9.0)", "psutil", "pycodestyle (>=2.6.0,<2
 category = "main"
 description = "Simple, modern file watching and code reload in python."
 name = "watchgod"
-optional = false
+optional = true
 python-versions = ">=3.5"
 version = "0.7"
 
@@ -510,12 +510,15 @@ version = "0.7"
 category = "main"
 description = "An implementation of the WebSocket Protocol (RFC 6455 & 7692)"
 name = "websockets"
-optional = false
+optional = true
 python-versions = ">=3.6.1"
 version = "9.1"
 
+[extras]
+server = ["uvicorn"]
+
 [metadata]
-content-hash = "d75c29968e6aebff9e6b0ba904ce4aa7be31efb9a859c6f3accaaa868dc4fa90"
+content-hash = "e6172a2e429fcc57ec7e00e8c55741d2599dff3e4a988a740c66be77c0ab3f10"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -783,8 +786,8 @@ pytest-cov = [
     {file = "pytest_cov-2.12.1-py2.py3-none-any.whl", hash = "sha256:261bb9e47e65bd099c89c3edf92972865210c36813f80ede5277dceb77a4a62a"},
 ]
 python-dotenv = [
-    {file = "python-dotenv-0.17.1.tar.gz", hash = "sha256:b1ae5e9643d5ed987fc57cc2583021e38db531946518130777734f9589b3141f"},
-    {file = "python_dotenv-0.17.1-py2.py3-none-any.whl", hash = "sha256:00aa34e92d992e9f8383730816359647f358f4a3be1ba45e5a5cefd27ee91544"},
+    {file = "python-dotenv-0.18.0.tar.gz", hash = "sha256:effaac3c1e58d89b3ccb4d04a40dc7ad6e0275fda25fd75ae9d323e2465e202d"},
+    {file = "python_dotenv-0.18.0-py2.py3-none-any.whl", hash = "sha256:dd8fe852847f4fbfadabf6183ddd4c824a9651f02d51714fa075c95561959c7d"},
 ]
 pyyaml = [
     {file = "PyYAML-5.4.1-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:3b2b1824fe7112845700f815ff6a489360226a5609b96ec2190a45e62a9fc922"},
